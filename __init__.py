@@ -10,8 +10,9 @@ class FoodOrderer(MycroftSkill):
     def handle_food(self, message):
         self.speak_dialog('orderer.food')
 
-        @intent_handler(AdaptIntent("").require('type'))
-        def type(self, message):
+     #   @intent_handler(AdaptIntent("").require('type'))
+    @intent_handler('type.voc')
+    def type(self, message):
             food_type = message.data.get('type')
             self.speak('okay I will order a {}'.format(food_type))
 
